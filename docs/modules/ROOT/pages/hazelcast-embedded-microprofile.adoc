@@ -1,16 +1,17 @@
-:github-address: https://github.com/hazelcast-guides/hazelcast-embedded-microprofile
+= Get Started with Hazelcast and Microprofile
 :templates-url: templates:ROOT:page$/
+:page-layout: tutorial
+:page-product: imdg
+:page-categories: Caching, Getting Started, Microservices
+:page-lang: java
+:page-edition: 
+:page-est-time: 10 mins
 :framework: Microprofile
-
-= Getting Started with Hazelcast using Microprofile
-
-This guide will get you started to use Hazelcast in a Microprofile application.
-
-include::{templates-url}/link-to-repo.adoc[]
+:description: In this tutorial, you will learn how to use Hazelcast within Microprofile microservices.
 
 == What You’ll Learn
 
-In this guide, you will learn how to use Hazelcast IMDG within Microprofile microservices.
+{description}
 
 The Microprofile application contains three endpoints that help you to put, read, and list the data.
 
@@ -20,19 +21,17 @@ instances along with your Microprofile servers to form a new cluster (Embedded m
 In client mode, the application connects to an existing Hazelcast cluster. In this setup, the client is not responsible
 for holding any data but fetching/putting data from/to the Hazelcast cluster.
 
-In embedded mode, the application initializes a single Hazelcast IMDG member instance which is used to keep the data.
-When you run the application multiple times, Hazelcast IMDG instances build a cluster and share the data.
+In embedded mode, the application initializes a single Hazelcast member instance which is used to keep the data.
+When you run the application multiple times, Hazelcast members build a cluster and share the data.
 
 See https://docs.hazelcast.org/docs/latest/manual/html-single/#hazelcast-topology[documentation] for the details on
 client/server and embedded topologies.
 
-
-== Prerequisites
-- ~ 10 mins
+== Before you Begin
 
 include::{templates-url}/microservices/prerequisites.adoc[]
 
-== Configuring Hazelcast
+== Configure Hazelcast
 
 Note that if you will use embedded Hazelcast instances, members will be created within your application and
 form a cluster automatically. However, if you will use Hazelcast client, you need to have a running Hazelcast
@@ -120,7 +119,7 @@ map.get(1);
 map.putIfAbsent(1, "another_value");
 ----
 
-== Running the Microprofile Application
+== Run the Microprofile Application
 
 Now, let's build the servers and then deploy the applications.
 
@@ -170,13 +169,13 @@ Note that after 30 seconds, these values will be evicted if the map is configure
 
 == Summary
 
-In this guide, we developed a simple application that uses Hazelcast to store the data.
-When we started two application instances, if they used Hazelcast client, they connected to a
+In this tutorial, you developed a simple application that uses Hazelcast to store the data.
+When you started two application instances, if they used Hazelcast client, they connected to a
 Hazelcast cluster and share the same map for fetching and storing data. Otherwise in embedded mode,
 the applications also created Hazelcast instances and they formed a cluster on their own to share
-data among them. In both cases, we could access the same data from both application instances.
+data among them. In both cases, you could access the same data from both application instances.
 
 == See Also
 
-- xref:hazelcast-embedded-springboot:ROOT:index.adoc[Hazelcast Embedded Spring Boot]
-- xref:hazelcast-client-quarkus:ROOT:index.adoc[Hazelcast Client for Quarkus]
+- xref:hazelcast-embedded-springboot.adoc[]
+- xref:hazelcast-client-quarkus.adoc[]
